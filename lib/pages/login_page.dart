@@ -5,6 +5,16 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: const Color(0x566AA6),
+        ),
+        child: Container(
+          color: const Color(0x2E3959),
+        ),
+      ),
+    );
   }
 }
