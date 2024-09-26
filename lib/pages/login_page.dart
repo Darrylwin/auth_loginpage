@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 
+import '../componenets/name_textfield.dart';
 import '../componenets/page_n.dart';
 
 class LoginPage extends StatelessWidget {
@@ -31,36 +32,51 @@ class LoginPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.all(20),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Create an account",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Create an account",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: "Already Have an Account?  ",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            TextSpan(
-                              text: "Log in",
-                              style: TextStyle(
-                                color: Colors.deepPurple,
-                                decoration: TextDecoration.underline,
+                        SizedBox(height: 7),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "Already Have an Account?  ",
+                                style: TextStyle(color: Colors.white),
                               ),
-                            ),
+                              TextSpan(
+                                text: "Log in",
+                                style: TextStyle(
+                                  color: Colors.deepPurple,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        // name textfilds
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            NameTextfield(hintText: "First Name"),
+                            SizedBox(width: 15),
+                            NameTextfield(hintText: "Last Name"),
                           ],
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ],
