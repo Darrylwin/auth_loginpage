@@ -60,7 +60,7 @@ class LoginPage extends StatelessWidget {
                               TextSpan(
                                 text: "Log in",
                                 style: TextStyle(
-                                  color: Colors.deepPurple,
+                                  color: const Color.fromARGB(255, 141, 96, 220),
                                   decoration: TextDecoration.underline,
                                 ),
                               ),
@@ -143,7 +143,7 @@ class LoginPage extends StatelessWidget {
                                   TextSpan(
                                     text: "Terms and Conditions",
                                     style: TextStyle(
-                                      color: Colors.deepPurple,
+                                      color: const Color.fromARGB(255, 141, 96, 220),
                                       decoration: TextDecoration.underline,
                                     ),
                                   ),
@@ -153,9 +153,26 @@ class LoginPage extends StatelessWidget {
                           ],
                         ),
 
-                        SizedBox(height: 30),
+                        SizedBox(height: 24),
 
                         // create account button
+                        Container(
+                          padding: EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 141, 96, 220),
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "Create account",
+                              style: TextStyle(
+                                color: Colors.white,
+                                // fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
