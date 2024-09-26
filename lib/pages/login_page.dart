@@ -10,6 +10,8 @@ class LoginPage extends StatelessWidget {
 
   PageController _controller = PageController();
 
+  void Function(bool?)? onChanged;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,6 +123,39 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                         ),
+
+                        SizedBox(height: 15),
+
+                        Row(
+                          children: [
+                            Checkbox(
+                              value: true,
+                              onChanged: onChanged,
+                            ),
+                            SizedBox(width: 9),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: "I agree to the ",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  TextSpan(
+                                    text: "Terms and Conditions",
+                                    style: TextStyle(
+                                      color: Colors.deepPurple,
+                                      decoration: TextDecoration.underline,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        SizedBox(height: 30),
+
+                        // create account button
                       ],
                     ),
                   ),
