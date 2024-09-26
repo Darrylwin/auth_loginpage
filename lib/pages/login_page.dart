@@ -20,30 +20,46 @@ class LoginPage extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: Container(
+            padding: EdgeInsets.all(10),
             color: Color.fromARGB(255, 28, 35, 56),
             child: Row(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Container(
-                    margin: EdgeInsets.all(10),
+                Container(
+                  width: MediaQuery.of(context).size.width / 2.3,
+                  decoration: BoxDecoration(
                     color: Colors.pinkAccent,
-                    width: MediaQuery.of(context).size.width /2,
-                    // height: MediaQuery.of(context).size.height /2,
-                      // child: PageView(
-                      //   controller: _controller,
-                      //   children: [
-                      //     PageN(),
-                      //     PageN(),
-                      //   ],
-                      // ),
-                      ),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
                 Container(
                   padding: EdgeInsets.all(20),
                   child: Column(
                     children: [
-                      Text("Create an account"),
+                      Text(
+                        "Create an account",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Already Have an Account?  ",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            TextSpan(
+                              text: "Log in",
+                              style: TextStyle(
+                                color: Colors.deepPurple,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
