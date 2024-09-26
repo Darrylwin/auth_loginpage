@@ -65,7 +65,7 @@ class LoginPage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 40),
                         // name textfilds
                         Row(
                           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,6 +74,52 @@ class LoginPage extends StatelessWidget {
                             SizedBox(width: 15),
                             NameTextfield(hintText: "Last Name"),
                           ],
+                        ),
+
+                        SizedBox(height: 15),
+
+                        //email textfield
+                        Container(
+                          color: Colors.grey.withOpacity(.15),
+                          height: 42,
+                          child: TextField(
+                            style: const TextStyle(
+                              color: Colors.white,
+                            ),
+                            decoration: InputDecoration(
+                              hintText: "Email",
+                              hintStyle: const TextStyle(
+                                color: Colors.grey,
+                              ),
+                              border: const OutlineInputBorder(),
+                              fillColor: const Color.fromARGB(255, 81, 98, 150),
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(height: 15),
+
+                        //password textfield
+                        Container(
+                          color: Colors.grey.withOpacity(.15),
+                          height: 42,
+                          child: TextField(
+                            style: const TextStyle(
+                              color: Colors.white,
+                            ),
+                            decoration: InputDecoration(
+                              suffixIcon: Icon(
+                                Icons.visibility,
+                                color: Colors.grey,
+                              ),
+                              hintText: "Enter Your Password",
+                              hintStyle: const TextStyle(
+                                color: Colors.grey,
+                              ),
+                              border: const OutlineInputBorder(),
+                              fillColor: const Color.fromARGB(255, 81, 98, 150),
+                            ),
+                          ),
                         ),
                       ],
                     ),
