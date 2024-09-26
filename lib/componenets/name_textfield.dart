@@ -12,7 +12,7 @@ class NameTextfield extends StatelessWidget {
     return Expanded(
       child: Container(
         color: Colors.grey.withOpacity(.15),
-        height: 40,
+                          height: 42,
         child:  TextField(
           style: const TextStyle(
             color: Colors.white,
