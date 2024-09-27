@@ -176,6 +176,8 @@ void onChanged(bool? value) {
                         Row(
                           children: [
                             Checkbox(
+                              activeColor: Colors.white,
+                              checkColor: Colors.black,
                               value: isChecked,
                               onChanged: onChanged,
                             ),
