@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
 
   TextEditingController passwordController = TextEditingController();
 
-  bool isVisible = false;
+  bool isVisible = true;
 
   void Function(bool?)? onChanged;
 
