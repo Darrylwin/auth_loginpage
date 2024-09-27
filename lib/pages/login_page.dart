@@ -101,10 +101,10 @@ class _LoginPageState extends State<LoginPage> {
                         child: SmoothPageIndicator(
                           onDotClicked: onDotClicked,
                           effect: SlideEffect(
-                            dotHeight: 2,
+                            dotHeight: 2.5,
                             dotWidth: 22,
                             activeDotColor: Colors.white,
-                            type: SlideType.slideUnder,
+                            type: SlideType.normal,
                           ),
                           controller: pageController,
                           count: 3,
