@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/componenets/auth_button.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
+import 'dart:async';
 import '../componenets/name_textfield.dart';
 import '../componenets/page_n.dart';
 
@@ -29,15 +30,18 @@ class _LoginPageState extends State<LoginPage> {
   PageController pageController = PageController();
 
   bool isVisible = true;
+
   bool isChecked = false;
 
   //google sign in
+  static const List<String> scopes = <String>[
+    'email',
+    'https://www.googleapis.com/auth/contacts.readonly',
+  ];
 
   // ignore: prefer_final_fields
   GoogleSignIn _googleSignIn = GoogleSignIn(
-    scopes: <String>[
-      'email',
-    ],
+    scopes: scopes,
   );
 
   void onChanged(bool? value) {
@@ -58,6 +62,28 @@ class _LoginPageState extends State<LoginPage> {
     setState(() {
       isVisible = !isVisible;
     });
+  }
+
+  GoogleSignInAccount? _curentUser;
+  String _contactText = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount? account) {
+      setState(() {
+        _curentUser = account;
+      });
+    });
+    _googleSignIn.signInSilently();
+  }
+
+  Future<void> _handleSignIn() async {
+    try {
+      await _googleSignIn.signIn();
+    } catch (error) {
+      print(error);
+    }
   }
 
   @override
