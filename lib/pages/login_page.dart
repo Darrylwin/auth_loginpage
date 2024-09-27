@@ -60,7 +60,8 @@ class LoginPage extends StatelessWidget {
                               TextSpan(
                                 text: "Log in",
                                 style: TextStyle(
-                                  color: const Color.fromARGB(255, 141, 96, 220),
+                                  color:
+                                      const Color.fromARGB(255, 141, 96, 220),
                                   decoration: TextDecoration.underline,
                                 ),
                               ),
@@ -143,7 +144,8 @@ class LoginPage extends StatelessWidget {
                                   TextSpan(
                                     text: "Terms and Conditions",
                                     style: TextStyle(
-                                      color: const Color.fromARGB(255, 141, 96, 220),
+                                      color: const Color.fromARGB(
+                                          255, 141, 96, 220),
                                       decoration: TextDecoration.underline,
                                     ),
                                   ),
@@ -172,6 +174,33 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                           ),
+                        ),
+
+                        SizedBox(height: 12),
+
+                        // or register with section
+
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Divider(
+                                color: Colors.grey,
+                                thickness: .4,
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                              "Or continue with",
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                            SizedBox(width: 10),
+                            Expanded(
+                              child: Divider(
+                                color: Colors.grey,
+                                thickness: .4,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
