@@ -139,6 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                           color: Colors.grey.withOpacity(.15),
                           height: 42,
                           child: TextField(
+                            obscureText: isVisible,
                             controller: passwordController,
                             style: const TextStyle(
                               color: Colors.white,
