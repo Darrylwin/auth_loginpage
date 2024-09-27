@@ -82,16 +82,20 @@ class _LoginPageState extends State<LoginPage> {
                         controller: pageController,
                         children: [
                           PageN(
-                            text1: "gjsl",
-                            text2: "hqshq",
+                            text1: "Capture Every Moment,",
+                            text2:
+                                "Let you turn your moments into masterpieces",
+                            isLastPage: false,
                           ),
                           PageN(
-                            text1: "jgnkqù",
-                            text2: "hqsshùjhq",
+                            text1: "Unleash Your Creativity,",
+                            text2: "Explore new techniques and bring your ideas",
+                            isLastPage: false,
                           ),
                           PageN(
-                            text1: "gjgjk  ieisl",
-                            text2: "hqs ejhq",
+                            text1: "Print Your Most Beautiful Memories,",
+                            text2: "Transform your snapshots into unique",
+                            isLastPage: true,
                           ),
                         ],
                       ),
@@ -101,10 +105,10 @@ class _LoginPageState extends State<LoginPage> {
                         child: SmoothPageIndicator(
                           onDotClicked: onDotClicked,
                           effect: SlideEffect(
-                            dotHeight: 2,
+                            dotHeight: 2.5,
                             dotWidth: 22,
                             activeDotColor: Colors.white,
-                            type: SlideType.slideUnder,
+                            type: SlideType.normal,
                           ),
                           controller: pageController,
                           count: 3,
