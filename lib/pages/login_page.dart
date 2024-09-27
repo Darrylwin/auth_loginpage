@@ -25,9 +25,13 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passwordController = TextEditingController();
 
   bool isVisible = true;
+  bool isChecked = false;
 
-  void Function(bool?)? onChanged;
-
+void onChanged(bool? value) {
+    setState(() {
+      isChecked = !isChecked;
+    });
+  }  
   void Function()? visibility() {
     setState(() {
       isVisible = !isVisible;
@@ -172,7 +176,7 @@ class _LoginPageState extends State<LoginPage> {
                         Row(
                           children: [
                             Checkbox(
-                              value: true,
+                              value: isChecked,
                               onChanged: onChanged,
                             ),
                             SizedBox(width: 9),
