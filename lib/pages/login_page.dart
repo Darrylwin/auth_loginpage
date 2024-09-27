@@ -4,12 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:myapp/componenets/auth_button.dart';
 
 import '../componenets/name_textfield.dart';
-import '../componenets/page_n.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
-  PageController _controller = PageController();
+  final PageController _controller = PageController();
 
   void Function(bool?)? onChanged;
 

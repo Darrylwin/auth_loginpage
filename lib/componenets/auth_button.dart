@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AuthButton extends StatelessWidget {
-  AuthButton({
+  const AuthButton({
     super.key,
     required this.path,
     required this.auth,
