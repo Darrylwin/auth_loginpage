@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:myapp/componenets/auth_button.dart';
 
 import '../componenets/name_textfield.dart';
 import '../componenets/page_n.dart';
@@ -37,7 +38,10 @@ class LoginPage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     alignment: Alignment.center,
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 50,
+                      vertical: 30,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -159,7 +163,7 @@ class LoginPage extends StatelessWidget {
 
                         // create account button
                         Container(
-                          padding: EdgeInsets.all(12),
+                          height: 39,
                           decoration: BoxDecoration(
                             color: const Color.fromARGB(255, 141, 96, 220),
                             borderRadius: BorderRadius.circular(6),
@@ -199,6 +203,22 @@ class LoginPage extends StatelessWidget {
                                 color: Colors.grey,
                                 thickness: .4,
                               ),
+                            ),
+                          ],
+                        ),
+
+                        SizedBox(height: 12),
+
+                        Row(
+                          children: [
+                            AuthButton(
+                              path: "assets/google.png",
+                              auth: "Google",
+                            ),
+                            SizedBox(width: 13),
+                            AuthButton(
+                              path: "assets/apple.png",
+                              auth: "Apple",
                             ),
                           ],
                         ),
