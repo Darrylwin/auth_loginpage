@@ -31,6 +31,15 @@ class _LoginPageState extends State<LoginPage> {
   bool isVisible = true;
   bool isChecked = false;
 
+  //google sign in
+
+  // ignore: prefer_final_fields
+  GoogleSignIn _googleSignIn = GoogleSignIn(
+    scopes: <String>[
+      'email',
+    ],
+  );
+
   void onChanged(bool? value) {
     setState(() {
       isChecked = !isChecked;
@@ -89,7 +98,8 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           PageN(
                             text1: "Unleash Your Creativity,",
-                            text2: "Explore new techniques and bring your ideas",
+                            text2:
+                                "Explore new techniques and bring your ideas",
                             isLastPage: false,
                           ),
                           PageN(
