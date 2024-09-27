@@ -86,6 +86,8 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  Future<void> _handleSignOut()=> _googleSignIn.disconnect();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
