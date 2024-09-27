@@ -5,17 +5,34 @@ import 'package:myapp/componenets/auth_button.dart';
 
 import '../componenets/name_textfield.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final PageController _controller = PageController();
+
   // controllers
   TextEditingController firstNameController = TextEditingController();
+
   TextEditingController lastNameController = TextEditingController();
+
   TextEditingController emailController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
 
+  bool isVisible = false;
+
   void Function(bool?)? onChanged;
+
+  void Function()? visibility() {
+    setState(() {
+      isVisible = !isVisible;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +61,7 @@ class LoginPage extends StatelessWidget {
                     alignment: Alignment.center,
                     padding: EdgeInsets.symmetric(
                       horizontal: 50,
-                      vertical: 30,
+                      vertical: 27,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,9 +144,17 @@ class LoginPage extends StatelessWidget {
                               color: Colors.white,
                             ),
                             decoration: InputDecoration(
-                              suffixIcon: Icon(
-                                Icons.visibility,
-                                color: Colors.grey,
+                              suffixIcon: GestureDetector(
+                                onTap: visibility,
+                                child: isVisible
+                                    ? Icon(
+                                        Icons.visibility,
+                                        color: Colors.grey,
+                                      )
+                                    : Icon(
+                                        Icons.visibility_off,
+                                        color: Colors.grey,
+                                      ),
                               ),
                               hintText: "Enter Your Password",
                               hintStyle: const TextStyle(
