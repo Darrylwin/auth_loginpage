@@ -9,6 +9,11 @@ class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
   final PageController _controller = PageController();
+  // controllers
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   void Function(bool?)? onChanged;
 
@@ -76,9 +81,15 @@ class LoginPage extends StatelessWidget {
                         Row(
                           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            NameTextfield(hintText: "First Name"),
+                            NameTextfield(
+                              hintText: "First Name",
+                              controller: firstNameController,
+                            ),
                             SizedBox(width: 15),
-                            NameTextfield(hintText: "Last Name"),
+                            NameTextfield(
+                              hintText: "Last Name",
+                              controller: lastNameController,
+                            ),
                           ],
                         ),
 
@@ -89,6 +100,7 @@ class LoginPage extends StatelessWidget {
                           color: Colors.grey.withOpacity(.15),
                           height: 42,
                           child: TextField(
+                            controller: emailController,
                             style: const TextStyle(
                               color: Colors.white,
                             ),
@@ -110,6 +122,7 @@ class LoginPage extends StatelessWidget {
                           color: Colors.grey.withOpacity(.15),
                           height: 42,
                           child: TextField(
+                            controller: passwordController,
                             style: const TextStyle(
                               color: Colors.white,
                             ),

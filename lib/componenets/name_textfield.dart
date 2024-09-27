@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class NameTextfield extends StatelessWidget {
   final String? hintText;
-  const NameTextfield({
+  TextEditingController controller = TextEditingController();
+  NameTextfield({
     super.key,
     required this.hintText,
+    required this.controller,
   });
 
   @override
@@ -14,6 +16,7 @@ class NameTextfield extends StatelessWidget {
         color: Colors.grey.withOpacity(.15),
                           height: 42,
         child:  TextField(
+          controller: controller,
           style: const TextStyle(
             color: Colors.white,
           ),
