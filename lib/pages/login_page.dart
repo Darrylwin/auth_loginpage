@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:myapp/componenets/auth_button.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../componenets/name_textfield.dart';
+import '../componenets/page_n.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({super.key});
@@ -24,14 +26,25 @@ class _LoginPageState extends State<LoginPage> {
 
   TextEditingController passwordController = TextEditingController();
 
+  PageController pageController = PageController();
+
   bool isVisible = true;
   bool isChecked = false;
 
-void onChanged(bool? value) {
+  void onChanged(bool? value) {
     setState(() {
       isChecked = !isChecked;
     });
-  }  
+  }
+
+  void Function(int)? onDotClicked(index) {
+    pageController.animateToPage(
+      index,
+      duration: Duration(microseconds: 500),
+      curve: Curves.linear,
+    );
+  }
+
   void Function()? visibility() {
     setState(() {
       isVisible = !isVisible;
@@ -54,10 +67,50 @@ void onChanged(bool? value) {
             child: Row(
               children: [
                 Container(
+                  padding: EdgeInsets.all(20),
                   width: MediaQuery.of(context).size.width / 2.3,
                   decoration: BoxDecoration(
-                    color: Colors.pinkAccent,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage("assets/montain.jpeg"),
+                    ),
                     borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Stack(
+                    children: [
+                      PageView(
+                        controller: pageController,
+                        children: [
+                          PageN(
+                            text1: "gjsl",
+                            text2: "hqshq",
+                          ),
+                          PageN(
+                            text1: "jgnkqù",
+                            text2: "hqsshùjhq",
+                          ),
+                          PageN(
+                            text1: "gjgjk  ieisl",
+                            text2: "hqs ejhq",
+                          ),
+                        ],
+                      ),
+                      Positioned(
+                        bottom: 1,
+                        left: MediaQuery.of(context).size.width / 7.5,
+                        child: SmoothPageIndicator(
+                          onDotClicked: onDotClicked,
+                          effect: SlideEffect(
+                            dotHeight: 2,
+                            dotWidth: 22,
+                            activeDotColor: Colors.white,
+                            type: SlideType.slideUnder,
+                          ),
+                          controller: pageController,
+                          count: 3,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Expanded(
@@ -176,6 +229,8 @@ void onChanged(bool? value) {
                         Row(
                           children: [
                             Checkbox(
+                              activeColor: Colors.white,
+                              checkColor: Colors.black,
                               value: isChecked,
                               onChanged: onChanged,
                             ),
