@@ -37,6 +37,14 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+  void Function(int)? onDotClicked(index) {
+    pageController.animateToPage(
+      index,
+      duration: Duration(microseconds: 500),
+      curve: Curves.linear,
+    );
+  }
+
   void Function()? visibility() {
     setState(() {
       isVisible = !isVisible;
@@ -91,6 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                         bottom: 1,
                         left: MediaQuery.of(context).size.width / 7.5,
                         child: SmoothPageIndicator(
+                          onDotClicked: onDotClicked,
                           effect: SlideEffect(
                             dotHeight: 2,
                             dotWidth: 22,
