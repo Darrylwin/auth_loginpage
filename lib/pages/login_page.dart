@@ -128,212 +128,214 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 50,
-                      vertical: 27,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Create an account",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
+                  child: SingleChildScrollView(
+                    child: Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 50,
+                        vertical: 27,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Create an account",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 7),
-                        RichText(
-                          text: TextSpan(
+                          SizedBox(height: 7),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "Already Have an Account?  ",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                TextSpan(
+                                  text: "Log in",
+                                  style: TextStyle(
+                                    color:
+                                        const Color.fromARGB(255, 141, 96, 220),
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 40),
+                          // name textfilds
+                          Row(
+                            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              TextSpan(
-                                text: "Already Have an Account?  ",
-                                style: TextStyle(color: Colors.white),
+                              NameTextfield(
+                                hintText: "First Name",
+                                controller: firstNameController,
                               ),
-                              TextSpan(
-                                text: "Log in",
-                                style: TextStyle(
-                                  color:
-                                      const Color.fromARGB(255, 141, 96, 220),
-                                  decoration: TextDecoration.underline,
+                              SizedBox(width: 15),
+                              NameTextfield(
+                                hintText: "Last Name",
+                                controller: lastNameController,
+                              ),
+                            ],
+                          ),
+                    
+                          SizedBox(height: 15),
+                    
+                          //email textfield
+                          Container(
+                            color: Colors.grey.withOpacity(.15),
+                            height: 42,
+                            child: TextField(
+                              controller: emailController,
+                              style: const TextStyle(
+                                color: Colors.white,
+                              ),
+                              decoration: InputDecoration(
+                                hintText: "Email",
+                                hintStyle: const TextStyle(
+                                  color: Colors.grey,
+                                ),
+                                border: const OutlineInputBorder(),
+                                fillColor: const Color.fromARGB(255, 81, 98, 150),
+                              ),
+                            ),
+                          ),
+                    
+                          SizedBox(height: 15),
+                    
+                          //password textfield
+                          Container(
+                            color: Colors.grey.withOpacity(.15),
+                            height: 42,
+                            child: TextField(
+                              obscureText: isVisible,
+                              controller: passwordController,
+                              style: const TextStyle(
+                                color: Colors.white,
+                              ),
+                              decoration: InputDecoration(
+                                suffixIcon: GestureDetector(
+                                  onTap: visibility,
+                                  child: isVisible
+                                      ? Icon(
+                                          Icons.visibility,
+                                          color: Colors.grey,
+                                        )
+                                      : Icon(
+                                          Icons.visibility_off,
+                                          color: Colors.grey,
+                                        ),
+                                ),
+                                hintText: "Enter Your Password",
+                                hintStyle: const TextStyle(
+                                  color: Colors.grey,
+                                ),
+                                border: const OutlineInputBorder(),
+                                fillColor: const Color.fromARGB(255, 81, 98, 150),
+                              ),
+                            ),
+                          ),
+                    
+                          SizedBox(height: 15),
+                    
+                          Row(
+                            children: [
+                              Checkbox(
+                                activeColor: Colors.white,
+                                checkColor: Colors.black,
+                                value: isChecked,
+                                onChanged: onChanged,
+                              ),
+                              SizedBox(width: 9),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: "I agree to the ",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    TextSpan(
+                                      text: "Terms and Conditions",
+                                      style: TextStyle(
+                                        color: const Color.fromARGB(
+                                            255, 141, 96, 220),
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
                           ),
-                        ),
-                        SizedBox(height: 40),
-                        // name textfilds
-                        Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            NameTextfield(
-                              hintText: "First Name",
-                              controller: firstNameController,
+                    
+                          SizedBox(height: 24),
+                    
+                          // create account button
+                          Container(
+                            height: 39,
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 141, 96, 220),
+                              borderRadius: BorderRadius.circular(6),
                             ),
-                            SizedBox(width: 15),
-                            NameTextfield(
-                              hintText: "Last Name",
-                              controller: lastNameController,
-                            ),
-                          ],
-                        ),
-
-                        SizedBox(height: 15),
-
-                        //email textfield
-                        Container(
-                          color: Colors.grey.withOpacity(.15),
-                          height: 42,
-                          child: TextField(
-                            controller: emailController,
-                            style: const TextStyle(
-                              color: Colors.white,
-                            ),
-                            decoration: InputDecoration(
-                              hintText: "Email",
-                              hintStyle: const TextStyle(
-                                color: Colors.grey,
-                              ),
-                              border: const OutlineInputBorder(),
-                              fillColor: const Color.fromARGB(255, 81, 98, 150),
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 15),
-
-                        //password textfield
-                        Container(
-                          color: Colors.grey.withOpacity(.15),
-                          height: 42,
-                          child: TextField(
-                            obscureText: isVisible,
-                            controller: passwordController,
-                            style: const TextStyle(
-                              color: Colors.white,
-                            ),
-                            decoration: InputDecoration(
-                              suffixIcon: GestureDetector(
-                                onTap: visibility,
-                                child: isVisible
-                                    ? Icon(
-                                        Icons.visibility,
-                                        color: Colors.grey,
-                                      )
-                                    : Icon(
-                                        Icons.visibility_off,
-                                        color: Colors.grey,
-                                      ),
-                              ),
-                              hintText: "Enter Your Password",
-                              hintStyle: const TextStyle(
-                                color: Colors.grey,
-                              ),
-                              border: const OutlineInputBorder(),
-                              fillColor: const Color.fromARGB(255, 81, 98, 150),
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 15),
-
-                        Row(
-                          children: [
-                            Checkbox(
-                              activeColor: Colors.white,
-                              checkColor: Colors.black,
-                              value: isChecked,
-                              onChanged: onChanged,
-                            ),
-                            SizedBox(width: 9),
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: "I agree to the ",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  TextSpan(
-                                    text: "Terms and Conditions",
-                                    style: TextStyle(
-                                      color: const Color.fromARGB(
-                                          255, 141, 96, 220),
-                                      decoration: TextDecoration.underline,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-
-                        SizedBox(height: 24),
-
-                        // create account button
-                        Container(
-                          height: 39,
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 141, 96, 220),
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Create account",
-                              style: TextStyle(
-                                color: Colors.white,
-                                // fontSize: 20,
-                                fontWeight: FontWeight.w400,
+                            child: Center(
+                              child: Text(
+                                "Create account",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  // fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-
-                        SizedBox(height: 12),
-
-                        // or register with section
-
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Divider(
-                                color: Colors.grey,
-                                thickness: .4,
+                    
+                          SizedBox(height: 12),
+                    
+                          // or register with section
+                    
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Divider(
+                                  color: Colors.grey,
+                                  thickness: .4,
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              "Or continue with",
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                            SizedBox(width: 10),
-                            Expanded(
-                              child: Divider(
-                                color: Colors.grey,
-                                thickness: .4,
+                              SizedBox(width: 10),
+                              Text(
+                                "Or continue with",
+                                style: TextStyle(color: Colors.grey),
                               ),
-                            ),
-                          ],
-                        ),
-
-                        SizedBox(height: 12),
-
-                        Row(
-                          children: [
-                            AuthButton(
-                              path: "assets/google.png",
-                              auth: "Google",
-                            ),
-                            SizedBox(width: 13),
-                            AuthButton(
-                              path: "assets/apple.png",
-                              auth: "Apple",
-                            ),
-                          ],
-                        ),
-                      ],
+                              SizedBox(width: 10),
+                              Expanded(
+                                child: Divider(
+                                  color: Colors.grey,
+                                  thickness: .4,
+                                ),
+                              ),
+                            ],
+                          ),
+                    
+                          SizedBox(height: 12),
+                    
+                          Row(
+                            children: [
+                              AuthButton(
+                                path: "assets/google.png",
+                                auth: "Google",
+                              ),
+                              SizedBox(width: 13),
+                              AuthButton(
+                                path: "assets/apple.png",
+                                auth: "Apple",
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
