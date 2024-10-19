@@ -1,4 +1,5 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, body_might_complete_normally_nullable, unused_field
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, body_might_complete_normally_nullable, unused_field, prefer_const_declarations
+import 'package:flutter_web_auth/flutter_web_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/componenets/auth_button.dart';
@@ -19,27 +20,37 @@ class _LoginPageState extends State<LoginPage> {
 
   // controllers
   TextEditingController firstNameController = TextEditingController();
-
   TextEditingController lastNameController = TextEditingController();
-
   TextEditingController emailController = TextEditingController();
-
   TextEditingController passwordController = TextEditingController();
-
   PageController pageController = PageController();
 
+  //onchanged variables
   bool isVisible = true;
   bool isChecked = false;
 
   //google sign in
-
-  // ignore: prefer_final_fields
-  GoogleSignIn _googleSignIn = GoogleSignIn(
+  final GoogleSignIn _googleSignIn = GoogleSignIn(
     scopes: <String>[
       'email',
     ],
   );
 
+  void _signIn() async {
+    final GoogleSignInAccount? account = await _googleSignIn.signIn();
+    final GoogleSignInAuthentication authentication = await account!.authentication;
+
+    //authentifier user avec api de google
+    final url = 'https://accounts.google.com/o/oauth2/auth?'
+    'responses_type=code&'
+    'client_id=634025147231-dcp8lu33l6gka0gouj83q2enkb7sden0.apps.googleusercontent.com&'
+    'redirect_uri=${Uri.encodeFull('http://localhost:5000')}&'
+    'scope=openid+email+profile&'; 
+
+    await FlutterWebAuth.authenticate(url: url, callbackUrlScheme: 'com.example.app');
+  }
+
+  //onchanged functions
   void onChanged(bool? value) {
     setState(() {
       isChecked = !isChecked;
