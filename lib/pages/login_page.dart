@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, body_might_complete_normally_nullable, unused_field
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/componenets/auth_button.dart';
@@ -181,9 +181,9 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ],
                           ),
-                    
+
                           SizedBox(height: 15),
-                    
+
                           //email textfield
                           Container(
                             color: Colors.grey.withOpacity(.15),
@@ -199,13 +199,14 @@ class _LoginPageState extends State<LoginPage> {
                                   color: Colors.grey,
                                 ),
                                 border: const OutlineInputBorder(),
-                                fillColor: const Color.fromARGB(255, 81, 98, 150),
+                                fillColor:
+                                    const Color.fromARGB(255, 81, 98, 150),
                               ),
                             ),
                           ),
-                    
+
                           SizedBox(height: 15),
-                    
+
                           //password textfield
                           Container(
                             color: Colors.grey.withOpacity(.15),
@@ -234,13 +235,14 @@ class _LoginPageState extends State<LoginPage> {
                                   color: Colors.grey,
                                 ),
                                 border: const OutlineInputBorder(),
-                                fillColor: const Color.fromARGB(255, 81, 98, 150),
+                                fillColor:
+                                    const Color.fromARGB(255, 81, 98, 150),
                               ),
                             ),
                           ),
-                    
+
                           SizedBox(height: 15),
-                    
+
                           Row(
                             children: [
                               Checkbox(
@@ -270,9 +272,9 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ],
                           ),
-                    
+
                           SizedBox(height: 24),
-                    
+
                           // create account button
                           Container(
                             height: 39,
@@ -291,11 +293,11 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
-                    
+
                           SizedBox(height: 12),
-                    
+
                           // or register with section
-                    
+
                           Row(
                             children: [
                               Expanded(
@@ -318,19 +320,21 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ],
                           ),
-                    
+
                           SizedBox(height: 12),
-                    
+
                           Row(
                             children: [
                               AuthButton(
                                 path: "assets/google.png",
                                 auth: "Google",
+                                onTapFunction: () {},
                               ),
                               SizedBox(width: 13),
                               AuthButton(
                                 path: "assets/apple.png",
                                 auth: "Apple",
+                                onTapFunction: () {},
                               ),
                             ],
                           ),
